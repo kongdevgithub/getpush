@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Register for {% endblock %}
+
+{% block extrabody %} class="no-nav"{% endblock %}
+
+{% block content %}
+<div class="header-background inner-background">
+    <div class="site-inner">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+        {% include 'navigation-sticky.html' %}
+        
+        <div class="fullheader-banner inner-banner text-left">
+        <div class="container">
+        
+        <h3>Sign up</h3>
+        <h4></h4>
+        
+        </div>
+        </div>
+        
+        
+        </div>
+        </div>
+
+
+<div class="site-inner">
+        <div id="content" class="website-content">
+<div id="registration" class="container">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <div class="form-container top-spacing">
+
+        {% if user_form.non_field_errors or profile_form.non_field_errors %}
+        <div class="non-field-errors">
+            {{ user_form.non_field_errors }}
+            {{ profile_form.non_field_errors }}
+        </div>
+        {% endif %}
+        {% if profile_form.website.errors %}
+        <div class="non-field-errors text-left">
+            <ul class="errorlist">
+                <li><strong>Website</strong></li>
+            </ul>
+            {{ profile_form.website.errors }}
+        </div>
+        {% endif %}
+
+        <form method="post">
+          <div class="top">
+            <div class="full">
+              <input type="text" class="{% if user_form.first_name.errors %}error{% endif %} form-control" name="{{ user_form.first_name.html_name }}" value="{% if user_form.first_name.valule %}{{ user_form.first_name.value }}{% endif %}" placeholder="First Name">
+              {{ user_form.first_name.errors }}
+            </div>
+            <!-- .col -->
+            
+            <div class="full">
+              <input type="text" class="form-control  {% if user_form.email.errors %}error{% endif %}" name="{{ user_form.email.html_name }}" value="{{ user_form.email.value }}" placeholder="E-mail">
+                {% if user_form.email.errors %}
+                <ul class="errorlist">
+                {% for error in user_form.email.errors %}
+                <li>{{ error|safe }}</li>    
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <!-- .col -->
+            
+            <div class="full">
+              <input type="password" class="form-control {% if user_form.password.errors %}error{% endif %}" name="{{ user_form.password.html_name }}" placeholder="Password">
+              {{ user_form.password.errors }}
+            </div>
+            <!-- .col -->
+            <div class="full">
+              <input type="password" class="form-control {% if user_form.password_confirm.errors %}error{% endif %}" name="{{ user_form.password_confirm.html_name }}" placeholder="Confirm Password">
+            </div>
+            <!-- .col -->
+            <br />
+
+            <input type="hidden" name="{{ profile_form.website_name.html_name }}" value="{{ profile_form.website_name.value }}" />
+            <input type="hidden" name="{{ profile_form.return_url.html_name }}" value="{{ profile_form.return_url.value }}" />
+            <input type="hidden" name="{{ profile_form.website.html_name }}" value="{{ profile_form.website.value }}" />
+            <input type="hidden" name="{{ profile_form.from_envato.html_name }}" value="{{ profile_form.from_envato.value }}" />            
+            {% if registering %}
+            <input type="submit" name="submit_sign_up" class="btn btn-lg btn-success" value="Continue" />
+            {% else %}
+            <input type="submit" name="submit_sign_up" class="btn btn-lg btn-success" value="Sign Up" />
+            {% endif %}            
+            <div class="text-right fine-print"> By clicking the "Sign Up" button you agree to our <a href="{% url 'tc' %}" target="_blank">Terms and Conditions</a> and our <a href="{% url 'privacy' %}" target="_blank">Privacy Policy</a> </div>
+          </div>
+          <div class="bottom">
+            <p>Already have an account?</p>
+            <a href="{% url 'login' %}" class="btn btn-success signup">Sign In</a> </div>
+          <div style="display:none">
+          {% csrf_token %}
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- .col --> 
+  </div>
+  <!-- .row --> 
+</div>
+</div>
+
+<!-- .website-content -->
+
+</div>
+{% endblock %}

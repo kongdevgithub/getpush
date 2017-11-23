@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input[type="email"] {
+          border: 1px solid #ddd;
+          padding: 4px 8px;
+        }
+
+        input[type="email"]:focus {
+          border: 1px solid #000;
+        }
+
+        input[type="submit"] {
+          font-weight: bold;
+          padding: 4px 8px;
+          border:1px solid #000;
+          background: #3b5998;
+          color:#fff;
+        }
+
+        form {
+          width: 50%;
+          margin: 215px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/unsubscribe/{{ client_profile_id }}" method="post" enctype="multipart/form-data">
+        <input type="email" name="email" value="" placeholder="name@email.com" required />
+        <input type="submit" name="submit" value="Submit" />
+        {% csrf_token %}
+    </form>
+</body>
+</html>

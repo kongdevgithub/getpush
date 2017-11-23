@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block extracss %}
+<link rel='stylesheet' id='wpaft-logo-slider-css'  href='{{ STATIC_URL}}css/client-carousel.css' type='text/css' media='all' />
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}js/jquery.form.min.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"{{ STATIC_URL }}images/ajax-loader.gif","recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"sending":"Sending ..."};
+/* ]]> */
+</script>
+<script src="{{ STATIC_URL }}js/skip-link-focus-fix.js"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+/* ]]> */
+</script>
+<script src="{{ STATIC_URL }}js/functions.js"></script>
+<script src="{{ STATIC_URL }}js/client-carousel.js"></script>
+<script src="{{ STATIC_URL }}js/scripts.js"></script>
+{% endblock %}
+
+{% block extrabody %} class="home page page-id-4 page-template-default no-sidebar wpb-js-composer js-comp-ver-4.11 vc_responsive"{% endblock %}
+
+{% block content %}
+
+<div id="Home" class="header-background ">
+
+  <div class="fullheader-banner text-center">
+      <div class="site-inner">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    {% include 'navigation-sticky.html' %}
+    </div>
+    <div class="container">
+        <h1>As an independent home seeker,<br>we'd like to offer our services.<br>Would you like a licensed agent<br>present during your tour(at no charge)?</h1>
+        <li class="agent-item">
+            <a href="/schedule">Yes</a>
+        </li>
+        <li class="agent-item">
+            <a href="">No</a>
+        </li>
+        <li class="agent-item">
+            <a href="">Indifferent</a>
+        </li>
+    </div>
+  </div>
+</div>
+{% endblock %}

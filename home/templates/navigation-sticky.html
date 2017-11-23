@@ -1,0 +1,32 @@
+<header id="masthead" class="website-header">
+  <div class="site-header-main">              
+    <div class="header-top">
+      <div class="signbox">
+        <nav class="maintop-navigation" aria-label="Header Menu">
+          <div class="menu-login-button-container">
+            <ul id="menu-login-button" class="headertop-menu">
+              {% if user.is_authenticated %}
+
+              <li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246">
+                <span class="username">Hey {{ user.first_name }}!</span>
+              </li>
+              <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248">
+                <a href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
+              <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247">
+                <a href="{% url 'logout' %}">Log out</a>
+              </li>                            
+              {% else %}
+              <li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248 vc_hidden-xs">
+                <a href="{% url 'login' %}">Sign In</a>
+              </li>
+              <li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247">
+                <a href="{% url 'register' %}">Sign up</a>
+              </li>              
+              {% endif %}
+            </ul>
+          </div>                    
+        </nav>
+      </div>
+    </div>
+</header><!-- .site-header -->

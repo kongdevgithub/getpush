@@ -1,0 +1,41 @@
+- admin:
+  x sees all websites in Dashboard when sending a push notification = 3
+  x can send notification to all websites = 2
+  x can send notification only to selected websites = 2
+  x creates account = 2
+  x creates website = 2
+  x appoints email: = 3
+    x appointee receives invitation: = 3
+      x email contains link: pushmonkey.com/accept/<invitation_id> = 2
+    x appointee registers account: = 3
+      x user account is created = 2
+      x user account is assigned to website = 2
+      x client profile? Not needed, because a profile should be able to manage multiple websites.
+    x appointee only sees her website(s) in the Dashboard = 3
+  x can resend invitation email to appointee = 2
+  x display agent email on list of websites = 1
+  x mark time of accepting invitation (updated_at field) = 1
+x agent:
+  x can log into WP
+  x can install JS
+  x can see dashboard
+
+- schedule a notification
+  x UI
+  x cron job
+  - time zones
+x tab layout on Dashboard
+
+- to test:
+  - sending notifications to multiple websites
+  - sending notifications to a single website from Dashboard
+  - sending notifications to a single website from WP admin
+  - multiple websites managed by same email
+
+
+a website can have only 1 user,
+a user can have multiple websites 
+=
+a website has the FK
+
+
