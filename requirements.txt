@@ -2,7 +2,7 @@ Cheetah==2.4.4
 Django==1.6.1
 Fabric==1.8.2
 Pillow==2.3.0
-PyYAML==3.10
+PyYAML==5.4
 South==1.0.2
 argparse==1.2.1
 colorama==0.2.5
